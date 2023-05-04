@@ -106,17 +106,32 @@ class _EasyImageViewerDismissibleDialogState
                         });
                       }),
                   Positioned(
-                      top: 5,
-                      right: 5,
-                      child: IconButton(
-                        icon: const Icon(Icons.close),
-                        color: widget.closeButtonColor,
-                        tooltip: widget.closeButtonTooltip,
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                          _handleDismissal();
-                        },
-                      ))
+                top: 35,
+                right: 25,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _handleDismissal();
+                  },
+                  child: Container(
+                    height: 30,
+                    width: 30,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Icon(
+                      Icons.close,
+                      color: widget.closeButtonColor,
+                    ),
+                    // child: IconButton(
+                    //   icon: const Icon(Icons.close),
+                    //   color: widget.closeButtonColor,
+                    //   tooltip: widget.closeButtonTooltip,
+                    // ),
+                  ),
+                )),
                 ])));
 
     if (widget.swipeDismissible) {
